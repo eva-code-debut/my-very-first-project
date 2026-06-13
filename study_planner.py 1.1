@@ -1,0 +1,36 @@
+# ask the amount 
+print("Please enter the required data below.")
+nb_exams = int(input("Enter the amount of exams/tests you have"))
+#create your lists
+exams= []
+difficulties = []
+dates = []
+# ask for the name, difficulty & date
+for i in range(nb_exams):
+    name = input(f"Enter the name of exam {i+1}: ")
+    exams.append(name)
+    difficulty = float(input(f"rate the defficulty of the {exams[i]} exam on a scale from 1 to 10 : "))
+    difficulties.append(difficulty) 
+    date = (input(f"Enter your due date for the {exams[i]} exam : "))
+    dates.append(date) 
+# skip a lign & add a title 
+print("\n=========SUMMARY========")
+for i in range(nb_exams): 
+    print(exams[i], "-",difficulties[i], "-", dates[i])
+# count the days needed & when to start
+from datetime import datetime, timedelta
+
+for i in range(nb_exams):
+    difficulty = difficulties[i]
+    date = dates[i]
+    exam = exams[i] 
+    if difficulty >= 8:
+        revision_days = 21
+    elif difficulty >= 7:
+        revision_days = 14
+    else: 
+        revision_days = 7
+    due_date = datetime.strptime(date, "%d/%m/%Y")
+    tdelta = timedelta(days=revision_days)
+    start_day = due_date - tdelta
+    print(f"For this {exams[i]} exam you'll have to start studying on the {start_day.strftime('%d/%m/%Y')}")
