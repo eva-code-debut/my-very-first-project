@@ -10,7 +10,7 @@ Planning your revision's schedule can take some time and be a source of stress. 
   
 
 ## How was it built (for now):
-a 100% hand generated code: i coded everything myself from the name to the day you should start studying
+100% hand generated code: i coded everything myself from the name to the day you should start studying
 
 ## Technical stack 
 Python
